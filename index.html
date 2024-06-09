@@ -25,12 +25,71 @@
 <body>
     <h1>Меню игры</h1>
     <button class="menu-button" id="frens-button">Друзья</button>
-    <button class="menu-button" id="play-button">Играть</button>
-    <button class="menu-button" id="tasks-button">Задачи</button>
-    <div id="game-container"></div>
-    <div id="balance-container">
-        <p>Баланс: <span id="balance">$0</span> $BIRD</p>
-    </div>
+<button class="menu-button" id="play-button">Играть</button>
+<button class="menu-button" id="tasks-button">Задачи</button>
+
+<!-- Контейнеры для iframe -->
+<div id="frens-container"></div>
+<div id="play-container"></div>
+<div id="tasks-container"></div>
+
+<!-- Скрипт -->
+<script>
+  const frensButton = document.getElementById('frens-button');
+  const playButton = document.getElementById('play-button');
+  const tasksButton = document.getElementById('tasks-button');
+
+  frensButton.addEventListener('click', () => {
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://friends.example.com/'; // замените на URL вашего раздела "Друзья"
+    iframe.frameBorder = '0';
+    iframe.width = '100%';
+    iframe.height = '500px';
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = 'Закрыть';
+    closeBtn.onclick = () => {
+      iframe.remove();
+      closeBtn.remove();
+    };
+    const container = document.getElementById('frens-container');
+    container.appendChild(iframe);
+    container.appendChild(closeBtn);
+  });
+
+  playButton.addEventListener('click', () => {
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://flappybirdonton.vercel.app/';
+    iframe.frameBorder = '0';
+    iframe.width = '100%';
+    iframe.height = '500px';
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = 'Закрыть';
+    closeBtn.onclick = () => {
+      iframe.remove();
+      closeBtn.remove();
+    };
+    const container = document.getElementById('play-container');
+    container.appendChild(iframe);
+    container.appendChild(closeBtn);
+  });
+
+  tasksButton.addEventListener('click', () => {
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://tasks.example.com/'; // замените на URL вашего раздела "Задания"
+    iframe.frameBorder = '0';
+    iframe.width = '100%';
+    iframe.height = '500px';
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = 'Закрыть';
+    closeBtn.onclick = () => {
+      iframe.remove();
+      closeBtn.remove();
+    };
+    const container = document.getElementById('tasks-container');
+    container.appendChild(iframe);
+    container.appendChild(closeBtn);
+  });
+</script>
 
     <script src="script.js"></script>
 </body>
